@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* ─── Brand Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --color-bg: #F8F9FC;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #FDF3D0;
+  --color-border: #E2E8F0;
+  --color-accent: #D4A017;
+  --color-accent-light: #FDF8EC;
+  --color-accent-dark: #B8860B;
+  --color-text-primary: #0F172A;
+  --color-text-muted: #64748B;
+}
+
+/* ─── Display font (Cormorant Garamond via --font-display) ───────────────── */
+h1, h2, h3,
+[class*="title"],
+[class*="heading"],
+[class*="headline"] {
+  font-family: var(--font-display), serif !important;
+  font-weight: 700;
+}
+
+/* ─── Body font (DM Sans via --font-body) ────────────────────────────────── */
+body, p, span, a, button, input, textarea {
+  font-family: var(--font-body), sans-serif;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  background-image: url('/hex-pattern.svg');
+  background-size: 40px 46px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Typography helpers ─────────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+/* ─── Responsive card grids ─────────────────────────────────────────────── */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (max-width: 1279px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+  .grid-3, .grid-2, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ─── Section container ──────────────────────────────────────────────────── */
+.sc {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+@media (max-width: 767px) {
+  .sc { padding: 0 1.25rem; }
+}
+
+/* ─── Section helpers ────────────────────────────────────────────────────── */
+/* Transparent window — body's fixed hex pattern shows through */
+.hex-bg {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+/* Dark navy — shields the body pattern completely */
+.dark-section {
+  background-color: #0F172A !important;
+  background-image: none !important;
+}
+/* Mustard — shields the body pattern completely */
+.mustard-section {
+  background-color: #D4A017 !important;
+  background-image: none !important;
+}
+/* Structural elements — always solid, never show body pattern */
+header {
+  background-image: none;
+}
+/* Cards and solid white surfaces — cover the body pattern */
+.card-surface {
+  background-image: none;
+}
+
+/* ─── Marquee animation ──────────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
