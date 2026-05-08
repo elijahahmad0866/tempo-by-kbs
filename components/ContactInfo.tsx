@@ -41,13 +41,13 @@ export default function ContactInfo() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
         <a
-          href="mailto:hello@tempobykb.com"
+          href="mailto:tempobykb@gmail.com"
           style={{ display: "flex", alignItems: "center", gap: "1rem", color: "var(--color-text-muted)", fontSize: "0.95rem", transition: "color 0.2s" }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-primary)"; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-muted)"; }}
         >
           <span style={iconWrap}><Mail size={16} /></span>
-          hello@tempobykb.com
+          tempobykb@gmail.com
         </a>
 
         <a

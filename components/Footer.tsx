@@ -121,7 +121,7 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               <a
-                href="mailto:hello@tempobykb.com"
+                href="mailto:tempobykb@gmail.com"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -140,7 +140,7 @@ export default function Footer() {
                 }}
               >
                 <Mail size={15} />
-                hello@tempobykb.com
+                tempobykb@gmail.com
               </a>
               <a
                 href="https://www.instagram.com/tempobykb"

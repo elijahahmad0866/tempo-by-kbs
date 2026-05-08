@@ -70,7 +70,7 @@ const schemaMarkup = {
     "Personal trainer in Los Angeles specializing in hypertrophy, mobility, sports performance and athletic training.",
   url: "https://tempobykb.com",
   telephone: "",
-  email: "hello@tempobykb.com",
+  email: "tempobykb@gmail.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Los Angeles",

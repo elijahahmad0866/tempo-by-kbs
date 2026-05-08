@@ -15,13 +15,29 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    // TODO: wire up to a form backend (e.g. Resend, Formspree, or a Next.js API route)
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    setSubmitted(true);
+    setError("");
+    const form = e.currentTarget;
+    try {
+      const res = await fetch("https://formspree.io/f/xkoyvqzo", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Something went wrong. Please email us directly at tempobykb@gmail.com");
+      }
+    } catch {
+      setError("Something went wrong. Please email us directly at tempobykb@gmail.com");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputStyle: React.CSSProperties = {
@@ -245,6 +261,11 @@ export default function ContactForm() {
           }}
         />
       </div>
+
+      {/* Error */}
+      {error && (
+        <p style={{ color: "#DC2626", fontSize: "0.85rem" }}>{error}</p>
+      )}
 
       {/* Submit */}
       <button
